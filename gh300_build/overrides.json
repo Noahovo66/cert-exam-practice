@@ -1,0 +1,40 @@
+{
+ "6": {
+  "type": "dragdrop",
+  "sources_en": ["copilot --add-dir", "copilot --continue", "copilot --model", "copilot --prompt", "copilot --resume"],
+  "targets": [
+   {"label_en": "Provides a list of previously saved interactive sessions", "correct_en": "copilot --resume"},
+   {"label_en": "Resumes the most recently ended session", "correct_en": "copilot --continue"}
+  ],
+  "explanation_en": "copilot --resume opens a picker that lists previously saved interactive sessions so you can choose one to resume.\ncopilot --continue resumes the most recently ended session directly, without showing the list.\n--add-dir grants access to an extra directory, --model selects the model, and --prompt runs a single prompt non-interactively."
+ },
+ "15": {
+  "type": "hotspot",
+  "boxes": [
+   {"prompt_en": "To install GitHub Copilot CLI:", "options_en": ["apt install copilot-cli", "npm install -g @github/copilot", "gh extension install github/copilot"], "correct_en": "gh extension install github/copilot"},
+   {"prompt_en": "To start the interactive session:", "options_en": ["copilot", "/new", "/session"], "correct_en": "copilot"}
+  ],
+  "explanation_en": "Box 1: gh extension install github/copilot (official answer in the source).\nBox 2: copilot — running the copilot command with no arguments starts an interactive session. /new and /session are slash commands used inside an already running session.\nNote: the current standalone GitHub Copilot CLI is also installed with npm install -g @github/copilot (or winget). The source's answer image marks the gh extension option, so that is what is scored here."
+ },
+ "82": {
+  "type": "dragdrop",
+  "ordered": true,
+  "sources_en": ["Run /login.", "Run copilot --resume.", "Run gh auth login.", "Open a browser-based GitHub sign-in flow.", "Confirm folder trust.", "Run copilot."],
+  "targets": [
+   {"label_en": "Step 1", "correct_en": "Run gh auth login."},
+   {"label_en": "Step 2", "correct_en": "Open a browser-based GitHub sign-in flow."},
+   {"label_en": "Step 3", "correct_en": "Confirm folder trust."},
+   {"label_en": "Step 4", "correct_en": "Run copilot."}
+  ],
+  "explanation_en": "1. Run gh auth login to authenticate the GitHub CLI.\n2. Complete the browser-based GitHub sign-in flow.\n3. Confirm folder trust so Copilot may read and modify files in the project folder.\n4. Run copilot from the project root to start the interactive session.\n/login is used inside an already running session, and copilot --resume resumes a previous session rather than starting a new one."
+ },
+ "128": {
+  "type": "hotspot",
+  "code": "[[1]] [[2]]",
+  "boxes": [
+   {"prompt_en": "Command", "options_en": ["/ls", "/cwd", "/add-dir"], "correct_en": "/add-dir"},
+   {"prompt_en": "Path", "options_en": ["@/repo/tests", "/repo/tests"], "correct_en": "/repo/tests"}
+  ],
+  "explanation_en": "Inside a running Copilot CLI session, the /add-dir slash command adds a trusted directory so Copilot can read and modify its files, without restarting the CLI.\nThe argument is the plain path /repo/tests. The @ prefix is used to mention a file as context in a prompt, not to grant directory access.\n(The source image lists /repo/tests twice in the second dropdown; the duplicate is merged here.)"
+ }
+}

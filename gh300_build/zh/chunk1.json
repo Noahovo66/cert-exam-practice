@@ -1,0 +1,385 @@
+[
+ {
+  "n": 1,
+  "stem": "GitHub Copilot 的毒性过滤器（toxicity filter）可能会标记哪些类型的提示词或代码片段？（每个正确答案是解决方案的一部分。请选择两项。）",
+  "options": {
+   "A": "仇恨言论或歧视性语言（例如种族侮辱用语、冒犯性的刻板印象）",
+   "B": "带有性暗示或露骨的内容",
+   "C": "含有逻辑错误或产生意外结果的代码",
+   "D": "包含强烈观点或批评的代码注释"
+  },
+  "explanation": "GitHub Copilot 内置毒性过滤器，用于防止生成有害或不当内容。该过滤器会标记包含仇恨言论、歧视性语言，或带有性暗示、露骨内容的提示词或代码片段，以确保安全且相互尊重的编码环境。\n参考：GitHub Copilot 关于安全与内容过滤的文档。"
+ },
+ {
+  "n": 2,
+  "stem": "关于 GitHub Copilot Knowledge Bases，下列哪项说法正确？",
+  "options": {
+   "A": "所有仓库都会被索引",
+   "B": "索引是静态的",
+   "C": "它是 Enterprise 功能",
+   "D": "所有文件类型都会被索引"
+  },
+  "explanation": "GitHub Copilot Knowledge Bases 是 Enterprise 功能，可让工具使用组织的内部文档和代码，提供更准确、更相关的建议。\n参考：GitHub Copilot Enterprise Knowledge Base 文档。"
+ },
+ {
+  "n": 3,
+  "stem": "下列哪个情境最能说明 GitHub Copilot Chat 作为工具的预期用途？",
+  "options": {
+   "A": "完全取代开发人员来生成代码。",
+   "B": "一种提供建议、但仍依赖人类判断的生产力工具。",
+   "C": "一种无需额外输入或监督的软件开发解决方案。",
+   "D": "一种仅用于调试和错误修正的工具。"
+  },
+  "explanation": "GitHub Copilot Chat 的设计目的是提升生产力，而不是取代开发人员。它提供建议并协助编码任务，但最终的决定与验证始终由开发人员负责。Copilot Chat 旨在增强开发人员的工作流程，使其更快、更高效，但并不能免除人类监督与判断的必要性。\n参考：GitHub Copilot 官方文档中关于该工具目的与用法的说明。"
+ },
+ {
+  "n": 4,
+  "stem": "GitHub Copilot 以常用的代码模式进行训练，可能产生什么影响？",
+  "options": {
+   "A": "建议尚未流行的创新编码方案。",
+   "B": "建议全新的项目，同时缩短项目时间。",
+   "C": "建议反映训练数据中最常见做法的代码片段。",
+   "D": "在提供多样化数据集时建议同质化的解决方案。"
+  },
+  "explanation": "“由于 GitHub Copilot 是以大量公开可用的代码训练的，它通常会建议反映常见编码实践和惯用法的代码片段。”\n这表明 Copilot 会反映它在训练数据中见过的最常见做法。\n参考：GitHub Copilot 关于训练与建议模式的文档。"
+ },
+ {
+  "n": 5,
+  "stem": "如何将公平性（fairness）的概念融入 AI 工具的运作过程？",
+  "options": {
+   "A": "关注无障碍性就能确保公平。",
+   "B": "重点收集大型训练数据集就能确保公平。",
+   "C": "定期监控 AI 工具的表现就能确保其输出公平。",
+   "D": "训练 AI 数据与算法使其不带偏见，就能确保公平。"
+  },
+  "explanation": "AI 工具的公平性是通过让数据和算法在训练时不带偏见来实现的，这样工具才能公平对待所有用户，避免歧视性的结果。\n参考：Microsoft 的 AI 原则与公平性指南。"
+ },
+ {
+  "n": 6,
+  "stem": "你最近结束了一个交互式 GitHub Copilot CLI 会话。\n你需要启动一个新会话，并满足以下要求：\n• 提供先前保存的交互式会话列表\n• 恢复最近结束的会话\n每项要求应运行哪个命令？每个命令可使用一次、多次或不使用。",
+  "sources": [
+   "copilot --add-dir",
+   "copilot --continue",
+   "copilot --model",
+   "copilot --prompt",
+   "copilot --resume"
+  ],
+  "targets": [
+   "提供先前保存的交互式会话列表",
+   "恢复最近结束的会话"
+  ],
+  "explanation": "copilot --resume 会打开一个选择器，列出先前保存的交互式会话，供你选择要恢复的会话。\ncopilot --continue 直接恢复最近结束的会话，不显示列表。\n--add-dir 用于授予对额外目录的访问权限，--model 用于选择模型，--prompt 用于以非交互方式运行单个提示词。"
+ },
+ {
+  "n": 7,
+  "stem": "下列哪些说法正确描述了 GitHub Copilot Individual 如何使用提示词数据？\n（每个正确答案是解决方案的一部分。请选择两项。）",
+  "options": {
+   "A": "提示词数据以未加密方式存储，以加快处理速度。",
+   "B": "GitHub 在内部使用提示词数据来改进搜索引擎。",
+   "C": "提示词数据用于训练机器学习模型，以提供更好的代码建议。",
+   "D": "实时的用户输入有助于生成感知上下文的代码建议。"
+  },
+  "explanation": "原文摘录：\n“对于 GitHub Copilot Individual，提示词和代码补全可能会被保留，并用于训练机器学习模型以改进 Copilot。”\n参考：GitHub Copilot 数据使用与隐私文档。"
+ },
+ {
+  "n": 8,
+  "stem": "在依赖 GitHub Copilot Chat 对代码功能的解释和改进建议时，一个关键的考虑因素是什么？",
+  "options": {
+   "A": "这些解释会根据用户反馈动态更新。",
+   "B": "检查并验证生成输出的准确性和完整性。",
+   "C": "GitHub Copilot Chat 使用静态数据库来生成解释。",
+   "D": "这些解释主要来自用户提供的文档。"
+  },
+  "explanation": "虽然 GitHub Copilot Chat 能提供有用的解释和建议，但务必检查并验证其生成的输出。Copilot 的建议基于其训练数据，不一定始终完全准确或完整。需要人类判断来确保代码的质量与正确性。\n参考：GitHub Copilot 最佳实践与使用指南。"
+ },
+ {
+  "n": 9,
+  "stem": "在哪些情境下可以使用 GitHub Copilot Chat 来提高生产力？（每个正确答案是解决方案的一部分。请选择两项。）",
+  "options": {
+   "A": "需要使用项目管理软件为团队生成项目计划。",
+   "B": "为新创建的代码库创建文档文件。",
+   "C": "开发人员加入新项目，想了解现有的软件代码。",
+   "D": "加快发布管理活动，将代码推送到生产环境的 main 分支。"
+  },
+  "explanation": "原文摘录：\n“Copilot Chat 可以根据你的代码生成文档。”\n参考：GitHub Copilot Chat 生产力文档。"
+ },
+ {
+  "n": 10,
+  "stem": "1.\nblog.yatricloud.com blog.yatricloud.com",
+  "options": {
+   "A": "该 API 可以生成关于 GitHub Copilot 所做代码质量改进的详细报告。",
+   "B": "该 API 可以追踪组织内被接受并使用的代码建议的接受率。",
+   "C": "该 API 可以重构你的代码以提高生产力。",
+   "D": "该 API 可以提供关于编码风格和标准合规性的反馈。",
+   "E": "该 API 可以提供 Copilot Chat 专属的建议接受率指标。"
+  },
+  "explanation": "GitHub Copilot 使用情况指标 API（usage metrics API）可提供代码建议的接受率以及 Copilot Chat 专属的建议接受率指标，帮助组织评估其成效。\n参考：GitHub Copilot usage metrics API 文档。"
+ },
+ {
+  "n": 11,
+  "stem": "在依赖 GitHub Copilot 生成涉及统计分析的代码时，开发人员应考虑什么？",
+  "options": {
+   "A": "GitHub Copilot 可以独立验证结果的统计显著性。",
+   "B": "GitHub Copilot 的建议基于统计趋势，不一定总能准确适用于特定数据集。",
+   "C": "GitHub Copilot 会自动更正用户初始代码中的任何统计错误。",
+   "D": "GitHub Copilot 可以设计先前未有文献记载的新统计方法。"
+  },
+  "explanation": "开发人员应当意识到，GitHub Copilot 的建议基于统计趋势，不一定总能准确适用于特定数据集，因此需要仔细验证。\n参考：GitHub Copilot 数据分析的局限性。"
+ },
+ {
+  "n": 12,
+  "stem": "聊天历史（chat history）在 GitHub Copilot 的代码建议中扮演什么角色？",
+  "options": {
+   "A": "聊天历史用于实时训练 GitHub Copilot 模型。",
+   "B": "聊天历史为 GitHub Copilot 提供上下文，提升其代码建议的相关性和准确性。",
+   "C": "聊天历史会被存储并与其他用户共享，以增强协作。",
+   "D": "聊天历史与 GitHub Copilot 无关，不影响其功能。"
+  },
+  "explanation": "聊天历史为 GitHub Copilot 提供宝贵的上下文，帮助它根据先前的互动和对话生成更相关、更准确的代码建议。\n参考：GitHub Copilot Chat 聊天历史文档。"
+ },
+ {
+  "n": 13,
+  "stem": "在哪里可以确认 GitHub Copilot 是否因内容排除（content exclusions）而没有返回建议？",
+  "options": {
+   "A": "编辑器状态栏中的 GitHub Copilot 图标会显示一条消息",
+   "B": "GitHub.com 上用户设置下的 GitHub Copilot 日志",
+   "C": "代码建议窗口会显示警告消息",
+   "D": "IDE 中的 GitHub Copilot 错误面板"
+  },
+  "explanation": "原文摘录：\n“当文件受到内容排除设置影响时，GitHub Copilot 不会在该文件中建议代码补全……”\n参考：GitHub Copilot 官方关于内容排除的疑难解答文档。"
+ },
+ {
+  "n": 14,
+  "stem": "GitHub Copilot Chat 有哪些潜在的局限性？（每个正确答案是解决方案的一部分。\n请选择两项。）",
+  "options": {
+   "A": "训练数据有限",
+   "B": "代码建议中没有偏见",
+   "C": "处理复杂代码结构的能力",
+   "D": "广泛支持所有编程语言"
+  },
+  "explanation": "原文摘录：\n“GitHub Copilot Chat 与所有 AI 模型一样，受限于其训练数据，不一定总能提供准确或最新的答案。”\n参考：GitHub Copilot Chat 局限性文档。"
+ },
+ {
+  "n": 15,
+  "stem": "你正在 Windows 11 设备上部署新的开发环境。\n你需要安装 GitHub Copilot CLI，然后启动一个交互式 GitHub Copilot CLI 会话。\n每项要求应运行哪个命令？请在答题区选择适当的选项。\n注意：每个正确选择得一分。",
+  "boxes": [
+   {
+    "prompt": "安装 GitHub Copilot CLI：",
+    "options": [
+     "apt install copilot-cli",
+     "npm install -g @github/copilot",
+     "gh extension install github/copilot"
+    ]
+   },
+   {
+    "prompt": "启动交互式会话：",
+    "options": [
+     "copilot",
+     "/new",
+     "/session"
+    ]
+   }
+  ],
+  "explanation": "方框 1：gh extension install github/copilot（来源中的官方答案）。\n方框 2：copilot — 不带参数运行 copilot 命令即可启动交互式会话。/new 和 /session 是在已运行的会话内使用的斜杠命令。\n注：目前独立的 GitHub Copilot CLI 也可通过 npm install -g @github/copilot（或 winget）安装。来源的答案图片标示的是 gh extension 选项，因此此处以它计分。"
+ },
+ {
+  "n": 16,
+  "stem": "代理服务（proxy service）托管在哪里？",
+  "options": {
+   "A": "自行托管",
+   "B": "Amazon Web Service",
+   "C": "Microsoft Azure",
+   "D": "Google Cloud Platform"
+  },
+  "explanation": "GitHub Copilot 的代理服务托管在 Microsoft Azure 上。\n参考：GitHub Copilot 基础设施与托管信息。"
+ },
+ {
+  "n": 17,
+  "stem": "下列哪项描述了角色提示（role prompting）？",
+  "options": {
+   "A": "在提示词中描述你的角色，以获得更好的建议",
+   "B": "告诉 GitHub Copilot 应以什么语气回应",
+   "C": "提示 GitHub Copilot 解释某个建议的作用是什么",
+   "D": "向 GitHub Copilot 提供多个你想使用的数据格式的示例"
+  },
+  "explanation": "角色提示是指在提示词中明确说明你的角色，或希望 GitHub Copilot 采用的角色设定（persona），帮助 Copilot 提供更贴合上下文、更准确的建议。通过定义你的角色（例如“作为资深软件工程师”“作为技术文档撰写者”），可引导 Copilot 按照该角色相应的专业知识和视角来调整回答，从而提高生成的代码和解释的质量与相关性。\n参考：GitHub Copilot 关于提示工程与最佳实践的文档。"
+ },
+ {
+  "n": 18,
+  "stem": "哪种 GitHub Copilot 定价方案可让你访问公司的知识库（knowledge bases）？",
+  "options": {
+   "A": "GitHub Copilot Individual",
+   "B": "GitHub Copilot Business",
+   "C": "GitHub Copilot Enterprise",
+   "D": "GitHub Copilot Professional"
+  },
+  "explanation": "GitHub Copilot Enterprise 可访问公司的知识库，使工具能根据组织特有的文档和代码提供贴合上下文的建议。\n参考：GitHub Copilot Enterprise 定价与功能。"
+ },
+ {
+  "n": 19,
+  "stem": "GitHub Copilot Enterprise 如何在拉取请求（pull request）流程中协助代码审查？（请选择两项。）",
+  "options": {
+   "A": "在自动审查后自动合并拉取请求。",
+   "B": "为拉取请求生成文字摘要和关键变更的项目符号列表。",
+   "C": "可以验证拉取请求中变更的准确性。",
+   "D": "可以回答关于拉取请求变更集的问题。"
+  },
+  "explanation": "GitHub Copilot Enterprise 通过生成拉取请求摘要并回答有关所做变更的问题来协助代码审查。\n参考：GitHub Copilot Enterprise 拉取请求审查文档。"
+ },
+ {
+  "n": 20,
+  "stem": "在为 GitHub Copilot 编写提示词时，下列哪项是提高生成代码相关性的推荐策略？",
+  "options": {
+   "A": "让提示词尽可能简短，使用单词或简短短语。",
+   "B": "用自然语言撰写提示词，完全不使用编程语言。",
+   "C": "避免提及编程语言，以便获得更灵活的建议。",
+   "D": "在提示词中提供预期输入和输出的示例。"
+  },
+  "explanation": "“要从 GitHub Copilot 获得最佳结果，请提供清晰的提示词，并在可能时加入预期输入和输出的示例。”\n这说明在提示词中加入示例是推荐的提示工程策略。\n参考：GitHub Copilot 提示工程文档。"
+ },
+ {
+  "n": 21,
+  "stem": "要在使用 GitHub Copilot 时获得 Microsoft 和 GitHub 在防范知识产权侵权方面的协助，需要设置哪项配置？",
+  "options": {
+   "A": "将匹配公开代码的建议设为“已阻止（blocked）”",
+   "B": "强制阻止 MIT 或 GPL 许可的代码",
+   "C": "在接受之前需要自行检查代码建议",
+   "D": "启用 GitHub Copilot 许可证检查"
+  },
+  "explanation": "为帮助防范知识产权侵权，需要将 GitHub Copilot 配置为阻止匹配公开代码的建议，以确保生成的代码不是直接复制自公开来源。\n参考：GitHub Copilot 关于知识产权保护与代码过滤的文档。"
+ },
+ {
+  "n": 22,
+  "stem": "/tests 斜杠命令如何协助开发人员？",
+  "options": {
+   "A": "构建详细的测试文档。",
+   "B": "为所选代码创建单元测试。",
+   "C": "与外部测试框架集成。",
+   "D": "执行测试用例以发现代码问题。"
+  },
+  "explanation": "GitHub Copilot Chat 中的 /tests 斜杠命令会为所选代码创建单元测试，帮助开发人员确保代码的功能性和可靠性。\n参考：GitHub Copilot Chat 命令文档。"
+ },
+ {
+  "n": 23,
+  "stem": "GitHub Copilot 的 LLM 在生成回应时，会从下列哪项获取上下文？",
+  "options": {
+   "A": "向仓库提交的频率",
+   "B": "IDE 中代码的语法高亮方案",
+   "C": "项目中相邻或相关的文件",
+   "D": "与 IDE 集成的版本控制系统"
+  },
+  "explanation": "“Copilot 可能会使用项目中相邻或相关文件的上下文，以提高建议的准确性。”\n这证实上下文会由相关文件的信息来充实，因此选项 C 正确。\n参考：GitHub Copilot 上下文来源文档。"
+ },
+ {
+  "n": 24,
+  "stem": "在 GitHub Mobile 上使用 GitHub Copilot Chat 时，分享反馈的最佳方式是什么？",
+  "options": {
+   "A": "使用 Copilot Chat 界面中的表情符号。",
+   "B": "GitHub 网站上的反馈区。",
+   "C": "在 GitHub 官方 X（Twitter）账号上发推。",
+   "D": "GitHub Mobile 应用中的“设置”菜单。"
+  },
+  "explanation": "“在 GitHub Mobile 上，你可以使用 Copilot Chat 界面中的表情符号，对回应快速提供反馈。”\n因此选项 A 正确。\n参考：GitHub Copilot Mobile 文档。"
+ },
+ {
+  "n": 25,
+  "stem": "对于涉及编程语言已弃用（deprecated）功能或语法的代码建议，GitHub Copilot 通常如何处理？",
+  "options": {
+   "A": "GitHub Copilot 会在建议中自动将已弃用的功能更新为最新版本。",
+   "B": "如果训练数据中存在已弃用的语法或功能，GitHub Copilot 可能会建议它们。",
+   "C": "GitHub Copilot 总是过滤掉已弃用的元素，以推广使用当前标准。",
+   "D": "GitHub Copilot 会拒绝所有涉及已弃用功能的提示词，以避免编译错误。"
+  },
+  "explanation": "“如果训练数据中出现已弃用的代码、API 或模式，GitHub Copilot 有时可能会建议它们。用户有责任检查并更新这些建议。”\n这说明 Copilot 不会自动更新或拒绝已弃用的功能，但若它们存在于训练数据中，仍可能被建议。\n参考：GitHub Copilot 使用限制文档。"
+ },
+ {
+  "n": 26,
+  "stem": "GitHub Copilot 和 GitHub Copilot Chat 能以何种方式帮助开发人员实现应用程序现代化？",
+  "options": {
+   "A": "GitHub Copilot 可以直接将旧版应用程序转换为云原生架构。",
+   "B": "GitHub Copilot 可以根据你的代码建议现代的编程模式。",
+   "C": "GitHub Copilot 可以根据单个查询创建并部署全栈应用程序。",
+   "D": "GitHub Copilot 可以重构应用程序以符合即将推出的标准。"
+  },
+  "explanation": "GitHub Copilot 和 GitHub Copilot Chat 是强大的 AI 驱动工具，通过提供感知上下文的代码建议和交互式支持来协助开发人员。具体到应用程序现代化，GitHub Copilot 擅长分析现有代码，并建议符合当代开发标准的现代编程模式、最佳实践和语法改进。例如，它可以建议更新过时的结构、提出更高效的算法，或推荐现代应用开发中广泛使用的框架和库。\n为什么不是 A？GitHub Copilot 不会“直接转换”旧版应用程序为云原生架构。它可以通过建议支持这种转型的代码变更或模式来提供协助，但无法自主完成整个转换过程，因为其中涉及的架构决策和部署步骤超出其范围。\n为什么不是 C？虽然 GitHub Copilot 可以生成代码片段，甚至应用程序的较大部分，但无法根据单个查询创建并部署全栈应用程序。它需要开发人员的输入、完善和集成，才能得到完整、可部署的解决方案。\n为什么不是 D？GitHub Copilot 可以通过对现有代码提出改进建议来协助重构，但它本质上并不会以预测方式“符合即将推出的标准”。它的建议基于当前的最佳实践和训练数据，而非尚未制定的未来标准。\n因此，B 是描述 GitHub Copilot 如何帮助开发人员实现应用程序现代化最准确、最现实的答案，它利用的是提供相关的、基于上下文的建议来更新和改进代码库的能力。\n参考：GitHub Copilot 关于应用程序现代化的文档。"
+ },
+ {
+  "n": 27,
+  "stem": "一位社交媒体经理想使用 AI 来过滤内容。他们如何提升平台 AI 运作的透明度？",
+  "options": {
+   "A": "定期更新 AI 过滤算法。",
+   "B": "依赖一家声誉良好的 AI 开发公司。",
+   "C": "关注用户对内容过滤的满意度。",
+   "D": "清楚说明 AI 被设计用来过滤哪些类型的内容，以及它如何得出结论。"
+  },
+  "explanation": "原文摘录：\n“透明度（Transparency）：AI 系统应当是可理解的。”\n参考：Microsoft 负责任 AI 指南与透明度说明。"
+ },
+ {
+  "n": 28,
+  "stem": "在使用 GitHub Copilot Chat 提升代码质量时，下列哪项是推荐的做法？\nA.",
+  "options": {
+   "A": "避免将 Copilot 用于复杂任务。",
+   "B": "停用 Copilot 的内联建议。",
+   "C": "定期检查并重构 Copilot 建议的代码。",
+   "D": "完全依赖 Copilot 的建议而不检查。"
+  },
+  "explanation": "“开发人员应始终检查、测试并重构 GitHub Copilot 生成的代码。Copilot 可以加快开发速度，但维持代码质量需要谨慎的人工监督。”\n这说明定期检查并重构 Copilot 的建议是推荐的最佳实践。\n参考：GitHub Copilot 负责任使用指南。"
+ },
+ {
+  "n": 29,
+  "stem": "GitHub Copilot 如何帮助开发人员减少上下文切换？",
+  "options": {
+   "A": "GitHub Copilot 可以自动处理项目管理任务。",
+   "B": "GitHub Copilot 可以完全取代人与人之间的协作。",
+   "C": "GitHub Copilot 可以在错误发生之前预测并预防。",
+   "D": "GitHub Copilot 让开发人员可以留在 IDE 中。"
+  },
+  "explanation": "“Copilot 将建议和解释直接带入 IDE，减少了在文档、浏览器和编辑器之间切换的需要。”\n这说明减少上下文切换的方式，是让开发人员能够留在 IDE 中。\n参考：GitHub Copilot 生产力文档。"
+ },
+ {
+  "n": 30,
+  "stem": "命令行界面（CLI）中的 GitHub Copilot 可用于配置下列哪些设置？（每个正确答案是解决方案的一部分。请选择两项。）",
+  "options": {
+   "A": "默认的执行确认",
+   "B": "使用情况分析",
+   "C": "默认编辑器",
+   "D": "GitHub CLI 子命令"
+  },
+  "explanation": "CLI 中的 GitHub Copilot 允许配置诸如默认执行确认和使用情况分析等设置，这些设置有助于根据用户偏好定制 CLI 体验。\n参考：GitHub Copilot CLI 配置文档。"
+ },
+ {
+  "n": 31,
+  "stem": "什么是零样本提示（zero-shot prompting）？",
+  "options": {
+   "A": "只向 GitHub Copilot 提供一个问题作为提示词，不给示例",
+   "B": "向 GitHub Copilot 提供你想解决的问题的示例",
+   "C": "告诉 GitHub Copilot 只需显示正确答案",
+   "D": "向 GitHub Copilot 提供你想使用的算法和结果的示例",
+   "E": "尽可能少地向 GitHub Copilot 提供上下文"
+  },
+  "explanation": "“零样本提示是指要求模型在不提供示例的情况下执行任务——只给出问题或任务描述。”\n这证实零样本提示的正确定义是不提供示例，只给出直接的提示词。\n参考：GitHub Copilot 与 AI 提示文档。"
+ },
+ {
+  "n": 32,
+  "stem": "你有一台安装了 Microsoft Visual Studio 2022 17.10 版的 Windows 开发工作站。\n你拥有有效的 GitHub Copilot 方案。\n你计划开始在 Visual Studio 中使用 GitHub Copilot 代码建议。\n你需要确保代码建议在 Visual Studio 中可用。该解决方案必须尽量减少管理工作量。\n你应该怎么做？",
+  "options": {
+   "A": "在工作站上安装 Node.js 18 或更高版本。",
+   "B": "从 Visual Studio Marketplace 安装 GitHub Copilot 扩展。",
+   "C": "使用你的 GitHub 账户登录 Visual Studio。",
+   "D": "在 Visual Studio 终端中运行 copilot setup。"
+  },
+  "explanation": "Visual Studio 2022 17.10 版已将统一的 GitHub Copilot 与 GitHub Copilot Chat 扩展作为内置组件，因此对此版本无需另外从 Marketplace 安装扩展。GitHub 文档也要求开发人员添加或登录具有 Copilot 方案访问权限的 GitHub 账户。由于工作站已安装 Visual Studio 17.10，且用户已有有效的 Copilot 方案，使用 GitHub 账户登录即是以最少管理工作量启用访问的操作。Node.js 不是 Visual Studio 中 Copilot 建议的先决条件，copilot setup 也不是文档中记载的 Visual Studio 激活方法。"
+ },
+ {
+  "n": 33,
+  "stem": "如果代码建议在编辑器中无法运作，可能有哪些原因？（请选择三项。）",
+  "options": {
+   "A": "你正在处理包含在 .gitignore 中的文件",
+   "B": "你没有可用的互联网连接",
+   "C": "你的编程语言不受支持",
+   "D": "你的内容排除（content exclusion）已启用，并阻止了 GitHub Copilot 的使用",
+   "E": "你没有有效的 GitHub Copilot 许可证"
+  },
+  "explanation": "原文摘录：\n“Copilot 需要有效的互联网连接才能提供建议。”\n“Copilot 并不支持所有编程语言。”\n参考：GitHub Copilot 疑难解答文档。"
+ }
+]

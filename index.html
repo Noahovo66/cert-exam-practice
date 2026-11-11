@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>考试模拟平台 · Exam Simulator</title>
+<style>
+  :root{
+    /* 日系淡色 — 白 / 藍墨 palette (no pink) */
+    --bg:#f6f7f8; --panel:#ffffff; --panel2:#f4f6f8; --line:#e6e8ec; --field:#fafbfc;
+    --txt:#3f444c; --muted:#888e98; --accent:#6f86ad; --accent2:#566e96;
+    --accent-soft:rgba(111,134,173,.13);
+    --indigo:#6f86ad; --good:#6fa791; --bad:#cf8079; --warn:#c0a052;
+    --radius:18px; --radius-sm:12px;
+    --shadow:0 6px 22px rgba(120,98,82,.10);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;overscroll-behavior-x:none} /* no browser back/forward on horizontal swipe */
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","PingFang SC","Microsoft YaHei",Roboto,Helvetica,Arial,sans-serif;
+    background:
+      radial-gradient(1200px 480px at 88% -8%, rgba(111,134,173,.10), transparent 60%),
+      radial-gradient(1000px 460px at 6% 4%, rgba(125,146,179,.08), transparent 55%),
+      linear-gradient(165deg,#fbfcfd,#f6f7f9 45%,#f3f4f6);
+    background-attachment:fixed;
+    color:var(--txt); line-height:1.65; min-height:100vh;
+  }
+  a{color:var(--accent2)}
+  .wrap{max-width:1000px;margin:0 auto;padding:22px 18px 90px}
+  header.topbar{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:14px 20px;background:rgba(255,253,249,.82);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;
+  }
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.3px;cursor:pointer}
+  .brand .logo{width:34px;height:34px;border-radius:11px;
+    background:linear-gradient(135deg,var(--accent),#9fb1cf);
+    display:grid;place-items:center;font-size:14px;font-weight:800;color:#fff;
+    box-shadow:0 3px 10px rgba(111,134,173,.35)}
+  .brand small{display:block;font-weight:500;color:var(--muted);font-size:11px;letter-spacing:0}
+  .topbar-right{display:flex;align-items:center;gap:10px}
+  .langtoggle{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--field)}
+  .langtoggle button{background:transparent;border:0;color:var(--muted);padding:6px 13px;cursor:pointer;font-size:13px;transition:.15s}
+  .langtoggle button.on{background:var(--accent);color:#fff;font-weight:600}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px;margin:18px 0;
+    box-shadow:var(--shadow)}
+  h1{font-size:25px;margin:6px 0 2px;letter-spacing:.5px}
+  h2{font-size:19px;margin:0 0 14px}
+  .sub{color:var(--muted);font-size:14.5px;margin:0 0 18px}
+
+  /* ---- home / exam picker ---- */
+  .home-hero{text-align:center;padding:20px 10px 4px}
+  .home-hero h1{font-size:28px;margin:10px 0 4px}
+  .home-hero .sub{margin:0 auto;max-width:560px}
+  .exam-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:6px}
+  .exam-card{position:relative;display:flex;flex-direction:column;gap:12px;background:var(--panel);
+    border:1px solid var(--line);border-radius:var(--radius);padding:24px;cursor:pointer;transition:.18s;
+    box-shadow:var(--shadow);overflow:hidden}
+  .exam-card::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;
+    background:linear-gradient(90deg,var(--accent),#9fb1cf)}
+  .exam-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 30px rgba(120,98,82,.16)}
+  .exam-card .ec-top{display:flex;align-items:center;gap:14px}
+  .exam-card .ec-logo{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+    font-size:17px;font-weight:800;color:#fff;flex:0 0 auto}
+  .exam-card .ec-code{font-size:21px;font-weight:800;letter-spacing:.5px}
+  .exam-card .ec-name{font-size:13px;color:var(--muted);margin-top:2px}
+  .exam-card .ec-desc{font-size:13.5px;color:var(--muted);line-height:1.6}
+  .exam-card .ec-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto}
+  .chip{font-size:12px;padding:4px 11px;border-radius:999px;background:var(--panel2);color:var(--muted);border:1px solid var(--line)}
+  .exam-card .ec-go{align-self:flex-start;margin-top:6px;font-weight:700;color:var(--accent2);font-size:14px}
+
+  .field{margin:20px 0}
+  .field>label.flabel{display:block;font-weight:600;margin-bottom:10px;font-size:15px}
+  .opts{display:flex;flex-wrap:wrap;gap:10px}
+  .opt-pill{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--panel2);
+    padding:10px 16px;border-radius:11px;cursor:pointer;transition:.15s;font-size:14px;user-select:none}
+  .opt-pill:hover{border-color:var(--accent)}
+  .opt-pill.sel{border-color:var(--accent);background:var(--accent-soft);color:var(--accent2);font-weight:600;box-shadow:0 0 0 1px var(--accent) inset}
+  .opt-pill.sel .ic{color:var(--accent)}
+  .opt-pill .ic{font-size:16px}
+  input[type=number]{width:120px;background:var(--field);border:1px solid var(--line);color:var(--txt);
+    padding:9px 12px;border-radius:10px;font-size:15px}
+  .hint{color:var(--muted);font-size:13px;margin-top:6px}
+
+  .btn{background:var(--accent);color:#fff;border:0;padding:12px 24px;border-radius:11px;font-size:15px;font-weight:600;
+    cursor:pointer;transition:.15s;box-shadow:0 4px 12px rgba(111,134,173,.28)}
+  .btn:hover{background:var(--accent2)}
+  .btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--txt);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--accent);background:var(--accent-soft)}
+  .btn.sm{padding:8px 14px;font-size:13px}
+  .btn.danger{background:transparent;border:1px solid var(--bad);color:var(--bad);box-shadow:none}
+  .btnrow{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px}
+  .review-counter{font-size:14px;font-weight:600;color:var(--muted);margin:0 4px}
+
+  /* exam */
+  .progressbar{height:7px;background:var(--panel2);border-radius:999px;overflow:hidden;margin:4px 0 16px}
+  .progressbar>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--indigo));width:0;transition:.3s}
+  .qmeta{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+  .qmeta .left{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .tag{font-size:11px;padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--panel2)}
+  .tag.type{color:var(--accent2);border-color:#c6d0e2;background:var(--accent-soft)}
+  .tag.cs{color:#a9803a;border-color:#e6cd97;background:rgba(217,176,102,.16)}
+  .tag.study{color:#8a6d1f;border-color:#f0d98a;background:linear-gradient(#fff6c4,#ffe98a)}
+  /* study-mode highlighter marks (荧光笔) */
+  mark.hl{background:linear-gradient(transparent 42%, #ffe86b 42%);color:inherit;padding:0 .5px;border-radius:1px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .choice.correct mark.hl{background:linear-gradient(transparent 42%, #ffd84d 42%)}
+  .counter{color:var(--muted);font-size:14px;font-weight:600}
+
+  details.scenario{margin:12px 0;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--panel2);overflow:hidden}
+  details.scenario>summary{cursor:pointer;padding:11px 15px;font-weight:600;color:#a9803a;font-size:14px;list-style:none}
+  details.scenario>summary::-webkit-details-marker{display:none}
+  details.scenario>summary::before{content:"\25B8  ";}
+  details.scenario .body{padding:0 16px 14px;white-space:pre-wrap;color:var(--muted);font-size:13.5px;max-height:340px;overflow:auto}
+
+  .stem{font-size:17px;line-height:1.7;margin:18px 0 24px;white-space:pre-wrap}
+  .multi-note{font-size:13px;color:#b78a3c;margin:-8px 0 14px}
+
+  /* code / exhibit context for "complete the code" questions */
+  .codewrap{margin:0 0 18px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--panel2);overflow:hidden}
+  .codewrap .clabel{padding:8px 14px;font-size:12.5px;font-weight:600;color:#a9803a;border-bottom:1px solid var(--line)}
+  pre.codeblock{margin:0;padding:14px 16px;overflow-x:auto;max-height:460px;overflow-y:auto}
+  pre.codeblock code{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;font-size:13px;line-height:1.65;white-space:pre;color:var(--txt)}
+  .cslot{display:inline-block;padding:1px 8px;border-radius:6px;background:#fde8ef;border:1px solid #f0b7cd;color:#b0446f;font-weight:600}
+
+  .choices{display:flex;flex-direction:column;gap:14px}
+  .choice{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);background:var(--panel2);
+    padding:15px 18px;border-radius:12px;cursor:pointer;transition:.12s;line-height:1.6}
+  .choice:hover{border-color:var(--accent)}
+  .choice.sel{border-color:var(--accent);background:var(--accent-soft)}
+  .choice .mark{flex:0 0 auto;width:24px;height:24px;border-radius:7px;border:2px solid var(--muted);
+    display:grid;place-items:center;font-weight:700;font-size:13px;color:var(--muted);margin-top:1px}
+  .choice.radio .mark{border-radius:50%}
+  .choice.sel .mark{border-color:var(--accent);background:var(--accent);color:#fff}
+  .choice .ltxt{flex:1}
+  .choice .lkey{font-weight:700;margin-right:7px;color:var(--accent2)}
+  .choice.correct{border-color:var(--good);background:rgba(127,176,154,.16)}
+  .choice.correct .mark{border-color:var(--good);background:var(--good);color:#0c2a20}
+  .choice.wrong{border-color:var(--bad);background:rgba(214,138,131,.16)}
+  .choice.wrong .mark{border-color:var(--bad);background:var(--bad);color:#2a0c0a}
+  /* study mode: the correct option carries the answer; the rest fade back */
+  .choices.study .choice{cursor:default}
+  .choices.study .choice:not(.correct):not(.wrong){opacity:.55;background:transparent}
+  .choices.study .choice.correct{box-shadow:0 2px 10px rgba(111,167,145,.18)}
+
+  .hsbox{display:flex;flex-direction:column;gap:6px;margin:10px 0;border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--panel2)}
+  .hsbox .prompt{font-weight:600}
+  .hsbox select{background:var(--field);border:1px solid var(--line);color:var(--txt);padding:10px 12px;border-radius:10px;font-size:14px;width:100%}
+  .hsbox.ok{border-color:var(--good)} .hsbox.no{border-color:var(--bad)}
+  .ansline{font-size:13px;margin-top:6px}
+  .ansline .ok{color:var(--good)} .ansline .no{color:var(--bad)}
+
+  .ddwrap{display:grid;grid-template-columns:1fr 1.2fr;gap:16px;margin:10px 0}
+  @media(max-width:680px){.ddwrap{grid-template-columns:1fr}}
+  .ddcol h3{font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:0 0 10px}
+  .source{border:1px solid var(--line);background:var(--field);padding:11px 14px;border-radius:10px;margin-bottom:9px;cursor:grab;font-size:14px;transition:.12s}
+  .source:hover{border-color:var(--accent)}
+  .source.picked{border-color:var(--accent);background:var(--accent-soft);box-shadow:0 0 0 1px var(--accent) inset}
+  .target{border:1.5px dashed var(--line);border-radius:12px;padding:12px 14px;margin-bottom:11px;background:var(--panel2);min-height:64px}
+  .target .tlabel{font-size:13px;color:var(--muted);margin-bottom:8px}
+  .target .slot{min-height:30px;display:flex;align-items:center;justify-content:space-between;gap:8px;
+    border:1px solid var(--line);border-radius:9px;padding:8px 12px;background:var(--field);font-size:14px}
+  .target.over{border-color:var(--accent);background:var(--accent-soft)}
+  .target .slot.empty{color:var(--muted);font-style:italic;border-style:dashed}
+  .target .slot .clr{cursor:pointer;color:var(--bad);font-weight:700;font-size:13px;border:0;background:transparent}
+  .target.ok{border-color:var(--good);border-style:solid} .target.no{border-color:var(--bad);border-style:solid}
+
+  .navbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;flex-wrap:wrap}
+  .actionbar{position:sticky;bottom:0;z-index:5;display:flex;flex-wrap:wrap;align-items:center;gap:10px;
+    margin:14px -26px 0;padding:12px 26px;background:rgba(255,255,255,.92);
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    border-top:1px solid var(--line);border-radius:0 0 var(--radius) var(--radius);box-shadow:0 -6px 18px rgba(80,90,110,.08)}
+  .actionbar .spacer{flex:1}
+  .actionbar .btn{padding:10px 20px}
+  @media (max-width:600px){
+    .actionbar{gap:8px;padding:10px 20px}
+    .actionbar .btn{padding:8px 12px;font-size:13.5px}
+    .actionbar .spacer{flex-basis:100%;height:0}          /* row 1: prev/answer/flag · row 2: next/submit */
+    .actionbar .spacer + .btn{margin-left:auto}
+  }
+  .kbhint{font-size:12.5px;color:var(--muted);margin-top:28px;padding-top:18px;border-top:1px dashed var(--line)}
+  .navlabel{margin-top:28px}
+  .palette{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+  .pdot{width:31px;height:31px;border-radius:8px;border:1px solid var(--line);background:var(--panel2);color:var(--muted);
+    font-size:12px;cursor:pointer;display:grid;place-items:center;transition:.12s}
+  .pdot:hover{border-color:var(--accent)}
+  .pdot.answered{background:var(--accent-soft);color:var(--accent2);border-color:#c6d0e2;font-weight:600}
+  .pdot.current{outline:2px solid var(--accent);outline-offset:1px;color:var(--accent2)}
+  .pdot.correct{background:rgba(127,176,154,.2);border-color:var(--good);color:#3f7a63;font-weight:600}
+  .pdot.wrong{background:rgba(214,138,131,.18);border-color:var(--bad);color:#b5564e;font-weight:600}
+
+  .scorebig{text-align:center;padding:8px 0 4px}
+  .ring{--p:0;width:172px;height:172px;border-radius:50%;margin:6px auto 10px;
+    background:conic-gradient(var(--rc,var(--accent)) calc(var(--p)*1%),#ece4d8 0);
+    display:grid;place-items:center;position:relative}
+  .ring::before{content:"";position:absolute;inset:14px;border-radius:50%;background:var(--panel)}
+  .ring .inner{position:relative;text-align:center}
+  .ring .pct{font-size:38px;font-weight:800}
+  .ring .lab{font-size:13px;color:var(--muted)}
+  .statrow{display:flex;justify-content:center;gap:26px;margin:6px 0 4px;flex-wrap:wrap}
+  .stat{text-align:center}
+  .stat b{display:block;font-size:22px}
+  .stat.g b{color:var(--good)} .stat.r b{color:var(--bad)}
+  .stat span{font-size:12px;color:var(--muted)}
+  .breaklist{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+  .verdict{font-weight:700}
+  .verdict.g{color:var(--good)} .verdict.r{color:var(--bad)}
+  .resume-card{margin-bottom:18px;border-left:5px solid var(--accent)}
+  .resume-card .resume-info{margin:4px 0 10px;font-size:15px}
+  .answer-banner{margin:6px 0 20px;border:1px solid var(--good);border-left:5px solid var(--good);border-radius:12px;
+    padding:12px 14px;background:rgba(127,176,154,.12)}
+  .answer-banner .ab-label{font-size:12px;font-weight:700;color:#3f7a63;letter-spacing:.5px;margin-bottom:4px}
+  .answer-banner .ab-body{font-size:15px;line-height:1.7}
+  .answer-banner .ab-body b{color:#2f6a53}
+  .btn.ghost.marked{border-color:var(--warn);color:#8a6d1f;background:rgba(217,176,102,.14)}
+  .pdot{position:relative}
+  .pdot.marked::after{content:'★';position:absolute;top:-7px;right:-5px;font-size:11px;color:var(--warn)}
+  .explain{margin-top:28px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+  .explain h4{margin:0 0 10px;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+  .explain .body{white-space:pre-wrap;color:#5b554d;font-size:14.5px;line-height:1.8;max-height:none}
+  .review-q{border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin:16px 0;background:var(--panel);box-shadow:var(--shadow)}
+  .hidden{display:none!important}
+  .center{text-align:center}
+  .footnote{color:var(--muted);font-size:12px;text-align:center;margin-top:30px}
+  ::selection{background:rgba(111,134,173,.26)}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand" id="brandHome" title="返回考试选择 / Back to exam list">
+    <div class="logo" id="brandLogo">試</div>
+    <div>考试模拟 <small id="brandSub">日系淡色 · Exam Simulator</small></div>
+  </div>
+  <div class="topbar-right">
+    <div class="langtoggle" id="langToggle">
+      <button data-lang="zh" class="on">简体中文</button>
+      <button data-lang="en">English</button>
+    </div>
+  </div>
+</header>
+<div class="wrap">
+  <div id="screen-home"></div>
+  <div id="screen-setup" class="hidden"></div>
+  <div id="screen-exam" class="hidden"></div>
+  <div id="screen-result" class="hidden"></div>
+  <div class="footnote" id="footnote"></div>
+</div>
+<script src="data.js"></script>
+<script src="data_ab620.js"></script>
+<script src="data_ai103.js"></script>
+<script src="data_dp800.js"></script>
+<script src="data_gh300.js"></script>
+<script src="keywords.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

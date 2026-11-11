@@ -1,0 +1,369 @@
+[
+ {
+  "n": 34,
+  "stem": "GitHub 对 Business 和 Enterprise 版的 Copilot 数据保留多长时间？（每个正确答案给出解决方案的一部分。请选择两项。）",
+  "options": {
+   "A": "提示和建议：不保留",
+   "B": "提示和建议：保留 28 天",
+   "C": "用户参与数据：保留两年",
+   "D": "用户参与数据：保留一年"
+  },
+  "explanation": "对于 GitHub Copilot Business 和 Enterprise，提示（prompts）和建议（suggestions）会保留 28 天，用于提供上下文并改进服务。用户参与数据（包括使用模式和交互）保留两年。该数据保留政策旨在在服务改进与用户隐私之间取得平衡。\n参考：GitHub Copilot 关于 Business 和 Enterprise 方案数据隐私与保留政策的文档。"
+ },
+ {
+  "n": 35,
+  "stem": "如何从 GitHub Copilot 获得多个建议？",
+  "options": {
+   "A": "通过在代码中使用注释请求多个建议",
+   "B": "通过在编辑器中打开补全面板（completions panel）",
+   "C": "通过使用内联聊天（inline chat）功能并输入命令 'multiple '",
+   "D": "通过在聊天窗口中使用 @workspace"
+  },
+  "explanation": "可以通过在编辑器中打开补全面板来获得多个建议，该面板会显示其他可选的代码建议。\n参考：GitHub Copilot 使用文档。"
+ },
+ {
+  "n": 36,
+  "stem": "开发人员可以使用什么方法通过 GitHub Copilot 生成示例数据？（每个正确答案给出解决方案的一部分。请选择两项。）",
+  "options": {
+   "A": "利用 GitHub Copilot 根据训练数据中的模式创建虚构信息的能力。",
+   "B": "利用 GitHub Copilot 自主启动并管理数据存储服务的能力。",
+   "C": "利用 GitHub Copilot 直接访问并使用数据库来创建示例数据的能力。",
+   "D": "利用 GitHub Copilot 根据仓库中的 API 文档提供建议来创建数据的能力。"
+  },
+  "explanation": "GitHub Copilot 可以根据其训练数据中的模式创建虚构信息，并根据仓库内的 API 文档给出建议，从而生成示例数据。\n参考：GitHub Copilot 关于数据生成辅助的文档。"
+ },
+ {
+  "n": 37,
+  "stem": "要在代码建议期间阻止 GitHub Copilot Business 使用特定文件，正确的做法是什么？",
+  "options": {
+   "A": "修改 .gitignore 文件，加入这些特定文件。",
+   "B": "将这些特定文件添加到 copilot.ignore 文件中。",
+   "C": "使用用户界面中的 GitHub Copilot 设置来排除文件。",
+   "D": "重命名文件，加上后缀 _no_copilot。"
+  },
+  "explanation": ""
+ },
+ {
+  "n": 38,
+  "stem": "GitHub Copilot 使用情况指标 API（usage metrics API）可以提供哪些洞察，以帮助评估 GitHub Copilot 的成效？（每个正确答案给出解决方案的一部分。请选择两项。）",
+  "options": {
+   "A": "该 API 可以生成关于 GitHub Copilot 所做代码质量改进的详细报告。B.",
+   "B": "该 API 可以跟踪组织内被接受并使用的代码建议数量。",
+   "C": "该 API 可以提供 Copilot Chat 专属的建议接受率指标。",
+   "D": "该 API 可以重构你的代码以提高生产力。",
+   "E": "该 API 可以提供关于编码风格和标准合规性的反馈。"
+  },
+  "explanation": "原文摘录：\n“Copilot 使用情况指标 API 允许组织跟踪成员看到并接受的建议数量。”\n参考：GitHub Copilot 指标 API 文档。"
+ },
+ {
+  "n": 39,
+  "stem": "/optimize 斜杠命令在 Visual Studio 中的主要作用是什么？",
+  "options": {
+   "A": "将代码翻译成性能更高的语言。",
+   "B": "通过分析运行时复杂度来提升所选代码的性能。",
+   "C": "按照所选风格指南自动格式化代码。",
+   "D": "将你的文档总结为更易维护、更易读的格式。"
+  },
+  "explanation": "“/optimize 分析并改进所选代码的运行时间。”Visual Studio Copilot Chat 斜杠命令文档中的这句话表明，/optimize 的作用正是分析并改进所选代码的运行时性能，与选项 B 完全一致。\n参考：GitHub Copilot 官方文档和 Visual Studio Copilot Chat 命令参考。"
+ },
+ {
+  "n": 40,
+  "stem": "哪些 GitHub Copilot 定价方案包含将你的 GitHub Copilot 数据（如使用情况、提示和建议）排除在 GitHub Copilot 默认训练之外的功能？（请选择两个正确答案。）",
+  "options": {
+   "A": "GitHub Copilot Business",
+   "B": "GitHub Copilot Codespace",
+   "C": "GitHub Copilot Individual",
+   "D": "GitHub Copilot Enterprise"
+  },
+  "explanation": "“对于 Copilot Business 和 Copilot Enterprise，代码建议、提示和补全等用户数据会被排除在 GitHub Copilot 模型的训练之外。”\n这确认只有 Business 和 Enterprise 方案提供此排除功能。\n参考：GitHub Copilot 数据使用与隐私文档。"
+ },
+ {
+  "n": 41,
+  "stem": "为什么确保 Generative AI（Gen AI）工具中所用代码的安全很重要？",
+  "options": {
+   "A": "确保代码安全可防止未经授权的访问和潜在的数据泄露。",
+   "B": "确保代码安全有助于开发更先进的 AI 功能。",
+   "C": "确保代码安全使 AI 系统能够有效处理更大的数据集。",
+   "D": "确保代码安全可维护 AI 系统的完整性。"
+  },
+  "explanation": "“保护与生成式 AI 一起使用的代码可防止未经授权的访问，有助于保护敏感数据，并防范潜在的泄露。”\n这确认选项 A 正确，因为其首要重要性在于避免未经授权的访问和数据泄露。\n参考：GitHub Copilot 负责任使用与 AI 安全文档。"
+ },
+ {
+  "n": 42,
+  "stem": "什么是 few-shot prompting（少样本提示）？",
+  "options": {
+   "A": "告诉 GitHub Copilot 你希望它使用的机制，以及如何将其融入回答",
+   "B": "告诉 GitHub Copilot 应基于哪些来源来生成回答",
+   "C": "告诉 GitHub Copilot 多次尝试回答该提示",
+   "D": "告诉 GitHub Copilot 在返回答案之前对答案迭代多次"
+  },
+  "explanation": "“Few-shot prompting 是一种技术，即提供你希望模型遵循的机制或输出的示例。这些示例会引导 AI 的回答。”\n这证明选项 A 正确。\n参考：GitHub Copilot 提示工程文档。"
+ },
+ {
+  "n": 43,
+  "stem": "过度依赖 GitHub Copilot 生成的代码有哪些潜在风险？（每个正确答案给出解决方案的一部分。请选择两项。）",
+  "options": {
+   "A": "GitHub Copilot 可能因建议带有已知漏洞利用的代码而引入安全漏洞。",
+   "B": "GitHub Copilot 可能因在提示工程上耗费过多时间而降低开发人员的速度。",
+   "C": "GitHub Copilot 的建议不一定总是反映最佳实践或最新的编码标准。",
+   "D": "GitHub Copilot 可能因提供不相关的建议而增加开发前置时间（lead time）。"
+  },
+  "explanation": "过度依赖 GitHub Copilot，如果生成的代码包含已知漏洞利用，可能会引入安全漏洞。此外，Copilot 的建议不一定总是符合最佳实践或最新标准，需要仔细审查和验证。\n参考：GitHub Copilot 最佳实践与风险管理。"
+ },
+ {
+  "n": 44,
+  "stem": "内容排除（content exclusions）有哪些效果？（每个正确答案给出解决方案的一部分。请选择两项。）",
+  "options": {
+   "A": "被排除的内容不会直接提供给 GitHub Copilot 用作上下文。",
+   "B": "在被排除的文件中不再提供 GitHub Copilot 建议。",
+   "C": "调试代码时不再使用被排除的内容。",
+   "D": "IDE 不会统计被排除内容中的编码建议。"
+  },
+  "explanation": "内容排除会阻止 GitHub Copilot 将被排除的内容用作上下文，并停止在这些文件中生成建议。\n参考：GitHub Copilot 内容排除文档。"
+ },
+ {
+  "n": 45,
+  "stem": "GitHub Copilot 如何识别匹配的代码，并确保公共代码得到妥善处理或被阻止？（每个正确答案给出解决方案的一部分。请选择两项。）",
+  "options": {
+   "A": "使用仅在私有仓库上训练的机器学习模型",
+   "B": "审查并存储用户特定的私有仓库数据以用于未来的建议",
+   "C": "过滤掉与公共仓库中代码匹配的建议",
+   "D": "实施保护措施，以检测并避免建议来自公共代码的逐字片段"
+  },
+  "explanation": "原文摘录：\n“GitHub Copilot 有一个过滤器，用于检测与 GitHub 上公共代码匹配的代码建议。启用此过滤器后，Copilot 会将约 150 个字符或更长的建议与公共代码进行比对，如发现匹配则予以阻止。”\n参考：GitHub Copilot 重复检测与保护措施文档。"
+ },
+ {
+  "n": 46,
+  "stem": "你有一台名为 Device1 的开发人员设备，运行 macOS 并已安装 Homebrew。\nDevice1 将由拥有 GitHub Copilot 方案的开发人员使用。\n你有一个 GitHub Enterprise Cloud 企业账户，其数据驻留（data residency）位于 contoso.ghe.com。\n你需要在 Device1 上安装 GitHub Copilot CLI，并针对正确的 GitHub 主机启动交互式身份验证。\n应按顺序运行哪两条命令？",
+  "options": {
+   "A": "brew install --cask copilot-cli # copilot login --host https://contoso.ghe.com",
+   "B": "brew install copilot-cli # gh auth login --hostname contoso.ghe.com",
+   "C": "brew install --cask copilot-cli # copilot login --host https://github.com",
+   "D": "npm install -g @github/copilot # gh auth login --hostname github.com"
+  },
+  "explanation": "当前的 GitHub Copilot 文档采用独立的 Copilot CLI 安装与身份验证流程。\n在装有 Homebrew 的 macOS 上，GitHub 文档给出的安装命令是 brew install --cask copilot-cli。对于具有数据驻留的 GitHub Enterprise Cloud 账户，CLI 应使用 copilot login --host https://SUBDOMAIN.ghe.com 直接针对企业主机进行身份验证；在本场景中该主机为 https://contoso.ghe.com。这一点很重要，因为 Copilot 许可证和身份验证上下文必须与提供访问权限的 GHE.com 账户相对应。PDF 中所选的命令反映的是较旧的 CLI 流程，并含有 OCR 或输入错误。根据当前的 GitHub Copilot 文档，经验证的顺序是先通过 Homebrew cask 安装，再运行 copilot login --host https://contoso.ghe.com。"
+ },
+ {
+  "n": 47,
+  "stem": "某团队在日常开发活动中使用 GitHub Copilot Individual。他们需要将特定文件排除在用于代码补全建议的信息之外。他们应如何做到？",
+  "options": {
+   "A": "让组织所有者配置内容排除",
+   "B": "在仓库中添加 .gitignore 文件",
+   "C": "让仓库管理员配置内容排除",
+   "D": "使用 #file Chat 变量来排除文件",
+   "E": "升级到 Copilot Business"
+  },
+  "explanation": "“内容排除仅适用于 GitHub Copilot Business 和 Enterprise。Copilot Individual 用户无法配置排除。”\n这确认该团队实现排除的唯一方式是升级到 Copilot Business。\n参考：GitHub Copilot 内容排除文档。"
+ },
+ {
+  "n": 48,
+  "stem": "一名独立承包商为多个不同客户开发应用程序。假设客户没有顾虑，哪种 GitHub Copilot 方案最合适？",
+  "options": {
+   "A": "GitHub Copilot Individual",
+   "B": "GitHub Copilot Business",
+   "C": "GitHub Copilot Business for non-GHE Customers",
+   "D": "GitHub Copilot Enterprise",
+   "E": "GitHub Copilot Teams"
+  },
+  "explanation": "对于独立承包商，GitHub Copilot Individual 是最合适且最具成本效益的方案。\n参考：GitHub Copilot 定价文档。"
+ },
+ {
+  "n": 49,
+  "stem": "当 GitHub Copilot 内容排除不起作用时，你应检查什么？（每个正确答案给出解决方案的一部分。请选择两项。）",
+  "options": {
+   "A": "GitHub Copilot 是否能连接到用户设置中所选的服务器。",
+   "B": "用户是否属于限制内容排除使用的内容排除团队。",
+   "C": "内容排除设置是否在最近 30 分钟内或更早之前发生过更改。",
+   "D": "用户是否所在组织已配置内容排除。"
+  },
+  "explanation": "原文摘录：\n“对内容排除设置的更改最多可能需要 30 分钟才能生效。”\n参考：GitHub Copilot 故障排除与内容排除文档。"
+ },
+ {
+  "n": 50,
+  "stem": "被内容排除所排除的内容，在什么情况下 GitHub Copilot 仍可使用？",
+  "options": {
+   "A": "当用户使用 @workspace 提示时。",
+   "B": "当仓库级设置允许用户覆盖时。",
+   "C": "如果被排除文件的内容在未被排除的代码中被引用，例如函数调用。",
+   "D": "如果内容排除是在企业级别配置的，并在组织级别被覆盖。"
+  },
+  "explanation": "“如果被排除的内容被未排除的代码引用（例如通过函数调用），Copilot 仍可能使用该引用上下文。”\n这确认被排除的内容如果在其他地方被引用，仍可能间接出现。\n参考：GitHub Copilot 内容排除限制文档。"
+ },
+ {
+  "n": 51,
+  "stem": "内容排除可以配置排除哪些内容？（每个正确答案给出解决方案的一部分。请选择三项。）",
+  "options": {
+   "A": "文件",
+   "B": "文件夹",
+   "C": "文件中的行",
+   "D": "Gist",
+   "E": "仓库"
+  },
+  "explanation": "“企业管理员可以配置内容排除，以将整个仓库、文件夹或特定文件排除在 Copilot 使用范围之外。”\n这确认可以排除文件、文件夹和仓库，但不能排除单独的行或 Gist。\n参考：GitHub Copilot 内容排除文档。"
+ },
+ {
+  "n": 52,
+  "stem": "GitHub Copilot Chat 如何确保函数正常工作？",
+  "options": {
+   "A": "根据代码的上下文和语义建议断言（assertions）。",
+   "B": "自动编写该函数的所有测试。",
+   "C": "编写该函数的实现代码。",
+   "D": "执行测试用例以验证代码的正确性。"
+  },
+  "explanation": "GitHub Copilot Chat 可以根据代码的上下文和语义建议断言，帮助开发人员验证其函数的正确性。这些断言用于检查函数在各种条件下是否按预期运行。\n参考：GitHub Copilot 关于测试与代码验证的文档。"
+ },
+ {
+  "n": 53,
+  "stem": "GitHub Copilot 如何帮助开发人员为其代码编写文档？",
+  "options": {
+   "A": "GitHub Copilot 无法协助编写文档或注释。",
+   "B": "GitHub Copilot 可以自动生成完整而详细的文档。",
+   "C": "GitHub Copilot 可以根据代码的功能建议摘要或描述。",
+   "D": "GitHub Copilot 只能生成 markdown 格式的内容。"
+  },
+  "explanation": "“Copilot 可以建议注释和文档摘要，用于描述所编写代码的功能。”\n因此选项 C 正确，因为 Copilot 提供的是摘要或描述，而不是完整的自动文档。\n参考：GitHub Copilot 文档功能。"
+ },
+ {
+  "n": 54,
+  "stem": "内容排除的添加或更新需要多长时间？",
+  "options": {
+   "A": "最多 30 分钟",
+   "B": "45 - 60 分钟",
+   "C": "60 - 90 分钟",
+   "D": "24 小时"
+  },
+  "explanation": "内容排除通常最多需要 30 分钟来添加或更新。\n参考：GitHub Copilot 内容排除文档。"
+ },
+ {
+  "n": 55,
+  "stem": "GitHub Copilot Chat 如何帮助理解现有代码库？",
+  "options": {
+   "A": "通过运行代码 linter 和格式化工具。",
+   "B": "通过提供代码结构的可视化图表。",
+   "C": "通过回答有关代码的问题并生成解释。",
+   "D": "通过自动重构代码以提高可读性。"
+  },
+  "explanation": "GitHub Copilot Chat 通过回答有关代码的问题并生成解释来帮助理解现有代码库，使开发人员能够快速掌握不熟悉代码的功能和结构。\n参考：GitHub Copilot Chat 关于代码理解的文档。"
+ },
+ {
+  "n": 56,
+  "stem": "/fix 斜杠命令具体执行什么功能？",
+  "options": {
+   "A": "使用静态分析工具发起代码审查，查找安全和逻辑错误。",
+   "B": "将伪代码转换为可执行代码，并针对可读性和可维护性进行优化。",
+   "C": "根据语言语法和最佳实践生成新的代码片段。",
+   "D": "针对检测到的问题提出更改，建议修正语法错误和编程错误。"
+  },
+  "explanation": "“/fix：针对所选代码中检测到的问题（如语法错误或常见编程错误）提出解决更改。”\n这确认 /fix 命令用于针对已识别的问题建议修正。\n参考：GitHub Copilot Chat 命令参考。"
+ },
+ {
+  "n": 57,
+  "stem": "以下与 GitHub Copilot Business 相关的哪些活动可以通过组织审核日志（audit logs）进行跟踪？",
+  "options": {
+   "A": "被接受的聊天建议",
+   "B": "GitHub Copilot 提出的代码建议",
+   "C": "内容排除设置的更改",
+   "D": "被重复检测过滤阻止的建议"
+  },
+  "explanation": "组织审核日志会跟踪内容排除设置的更改，使管理员能够了解配置变更。\n参考：GitHub Copilot Business 审核日志。"
+ },
+ {
+  "n": 58,
+  "stem": "启用公共代码过滤器（public code filter）后，GitHub Copilot 识别公共代码匹配的过程是什么？",
+  "options": {
+   "A": "让代码建议通过旨在检测公共代码的过滤器",
+   "B": "使用机器学习将建议与公共代码进行比较。",
+   "C": "分析正在编写的代码的上下文和结构",
+   "D": "查看用户的浏览历史以识别公共仓库"
+  },
+  "explanation": "启用公共代码过滤器后，GitHub Copilot 会让代码建议通过旨在检测与公开代码匹配的过滤器。这有助于防止生成可能侵犯版权或许可协议的代码。\n参考：GitHub Copilot 关于公共代码过滤与许可的文档。"
+ },
+ {
+  "n": 59,
+  "stem": "如何改善 GitHub Copilot 所使用的上下文？（每个正确答案给出解决方案的一部分。\n请选择两项。）",
+  "options": {
+   "A": "在 IDE 中打开相关的标签页",
+   "B": "在提示中加入相关的代码片段",
+   "C": "将重要文件添加到你的 .gitconfig 中",
+   "D": "在提示中加入重要文件的完整文件路径"
+  },
+  "explanation": "改善 GitHub Copilot 的上下文，包括在 IDE 中打开相关文件以提供即时上下文，以及直接在提示中加入相关代码片段，为 Copilot 提供具体的示例和信息。\n参考：GitHub Copilot 提示工程与上下文管理。"
+ },
+ {
+  "n": 60,
+  "stem": "哪种 GitHub Copilot 方案允许收集提示和建议？",
+  "options": {
+   "A": "GitHub Copilot Individuals",
+   "B": "GitHub Copilot Business",
+   "C": "GitHub Copilot Enterprise",
+   "D": "GitHub Copilot Codespace"
+  },
+  "explanation": "GitHub Copilot Enterprise 允许收集提示和建议，使组织能够分析并改进其对该工具的使用。\n参考：GitHub Copilot Enterprise 数据收集文档。"
+ },
+ {
+  "n": 61,
+  "stem": "以下哪项陈述最能描述 GitHub Copilot 对软件开发过程的影响？",
+  "options": {
+   "A": "它减少来自第三方依赖项的软件漏洞。",
+   "B": "它通过自动化测试工作流来降低开销。",
+   "C": "它通过自动化重复性编码任务来提高生产力。",
+   "D": "它取代了软件开发过程中对开发人员的需求。"
+  },
+  "explanation": "GitHub Copilot 对软件开发过程的主要影响是通过自动化重复性编码任务来提高生产力。\n参考：GitHub Copilot 影响文档。"
+ },
+ {
+  "n": 62,
+  "stem": "通过 REST API 可以检索 GitHub Copilot Business 订阅的哪些类型的信息？\n（每个正确答案给出解决方案的一部分。请选择两项。）",
+  "options": {
+   "A": "获取组织成员的 GitHub Copilot 使用情况摘要",
+   "B": "列出组织的所有 GitHub Copilot 席位（seat）分配",
+   "C": "查看特定用户的代码建议",
+   "D": "列出组织内所有未订阅的 GitHub Copilot 成员"
+  },
+  "explanation": "原文摘录：\n“Copilot Business 的 REST API 允许你检索组织成员的 Copilot 使用情况指标摘要。”\n参考：GitHub Copilot Business REST API 文档。"
+ },
+ {
+  "n": 63,
+  "stem": "一家公司目前将代码存储在 Bitbucket，并希望使用 GitHub Copilot。哪种 GitHub Copilot 方案最具成本效益，且能让他们通过身份提供商（如 Okta）管理用户？",
+  "options": {
+   "A": "GitHub Copilot Business for non-GHE customers",
+   "B": "GitHub Copilot Individual",
+   "C": "GitHub Copilot Enterprise",
+   "D": "GitHub Copilot Teams"
+  },
+  "explanation": "GitHub Copilot Enterprise 是通过 Okta 等身份提供商管理用户时最具成本效益的方案，因为它提供企业级功能和集成。\n参考：GitHub Copilot 定价与功能。"
+ },
+ {
+  "n": 64,
+  "stem": "你有一个名为 Repo1 的 GitHub 仓库，已启用 GitHub Copilot。\n贵公司的开发人员在 Microsoft Visual Studio Code 中使用 Repo1。\n你需要识别可能不是原创的建议，并防止密钥（secrets）被提交到 Repo1。\n该解决方案必须确保开发人员能够在 Visual Studio Code 中使用内联 GitHub Copilot 建议。\n你应执行哪两项操作？每个正确答案给出解决方案的一部分。",
+  "options": {
+   "A": "在 Repo1 上启用 secret scanning 的推送保护（push protection）。",
+   "B": "为 GitHub Copilot 补全启用代码引用（code referencing）。",
+   "C": "在 IDE 中禁用内联 GitHub Copilot 建议。",
+   "D": "添加用于安全编码的仓库自定义指令，或创建自定义推送策略并配置代码检查运行（code check run）。"
+  },
+  "explanation": "有两个独立的 GitHub 功能可满足这些安全要求。推送保护是 secret scanning 的一部分，会在推送到仓库之前阻止受支持的密钥，帮助防止凭据被提交。GitHub Copilot 代码引用（code referencing）用于解决可能不是原创的建议：当允许公共代码匹配时，被接受的、与 GitHub 公共代码匹配的内联建议可以连同来源 URL 和许可证信息一起被记录，使开发人员能够审查其来源。禁用内联建议会违反开发人员继续使用 Copilot 补全的要求。仓库自定义指令可能会影响生成的代码，但不能取代 secret scanning 或公共代码匹配。因此，同时启用推送保护和 Copilot 代码引用是正确的组合。"
+ },
+ {
+  "n": 65,
+  "stem": "在 GitHub Copilot Chat 的数据流中，用户输入的预处理（pre-processing）起什么作用？",
+  "options": {
+   "A": "它从用户的输入提示中过滤掉不相关的信息。",
+   "B": "它在将输入提示传递给语言模型之前，用额外的上下文丰富该提示。",
+   "C": "它根据用户的输入提示直接生成响应。",
+   "D": "它在向用户呈现之前格式化输出响应。"
+  },
+  "explanation": "“在发送给模型之前，用户输入会经过预处理，以用打开的文件、代码选区或之前的对话历史等上下文信息来丰富提示。”\n这表明预处理用于以上下文丰富输入，因此选项 B 正确。\n参考：GitHub Copilot Chat 架构文档。"
+ },
+ {
+  "n": 66,
+  "stem": "访问 GitHub Copilot Business 的审核日志事件的正确方式是什么？",
+  "options": {
+   "A": "导航到组织 GitHub 设置中的 Security 选项卡",
+   "B": "导航到仓库设置中的 Insights 选项卡",
+   "C": "使用组织 GitHub 设置中的 Audit log 部分",
+   "D": "使用 GitHub 仓库中的 Code 选项卡"
+  },
+  "explanation": "GitHub Copilot Business 的审核日志事件可以通过组织 GitHub 设置中的 Audit log 部分访问。该日志记录了与 Copilot 使用和配置相关的活动。\n参考：GitHub Copilot Business 关于审核日志的文档。"
+ }
+]
